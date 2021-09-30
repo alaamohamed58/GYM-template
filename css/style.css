@@ -107,6 +107,9 @@ header .container nav span.toggle span{
     height: 1px;
     transition: all 0.3s linear;
 }
+header .container nav span.toggle.active span{
+    background-color: var(--main-color);
+}
 header .container nav span.toggle span:nth-of-type(1),
 header .container nav span.toggle span:nth-of-type(3){
     width: 100%;
@@ -115,10 +118,8 @@ header .container nav span.toggle span:nth-of-type(2){
     width: 50%;
     transition: all 0.3s linear;
 }
-header .container nav span.toggle:hover span{
-background-color: var(--main-color);
-}
-header .container nav span.toggle:hover span:nth-of-type(2){
+
+header .container nav span.toggle.active span:nth-of-type(2){
     width: 100%;
 }
 header .container nav .mobile{
@@ -166,9 +167,6 @@ header .container nav .icons i:hover{
     transform-origin: left top;
     transition: all 0.3s linear;
     }
-    header .container nav:hover .mobile{
-        transform: translateY(-9%);
-    }
     header .container nav .mobile ul{
         flex-direction: column;
         margin-top: 10px;
@@ -188,16 +186,22 @@ header .container nav .icons i:hover{
         padding:2px 10px;
          font-size: 10px;
         font-weight: lighter;
-    
     }
 }
 /*start landing*/
 .landing{
-    background-image:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3) ), url("../images/hero-bg.jpg");
     min-height: 100vh;
-    background-size:cover;
     position: relative;
-    background-position: center;
+}
+.landing img{
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100vh;
+    transition: all 2s ;
+  opacity: 0    ;}
+.landing img.active{
+   opacity: 1;
 }
 .landing .texts{
     position: absolute;
@@ -240,6 +244,41 @@ transition: all 0.3s linear;
     border-color: #fff;
     background-color: #fff;
     border: none;
+}
+.landing i.right,
+.landing i.left{
+    position: absolute;
+    color: #fff;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 45px;
+}
+.landing i.right.disapled,
+.landing i.left.disapled{
+     color: #dddddd57;
+}
+.landing i.right{
+    right: 30px;
+}
+.landing i.left{
+    left: 30px;
+}
+.landing ul{
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translate(-50% ,-30px);
+}
+.landing ul li{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+.landing ul li.active{
+    background-color: var(--main-color);
 }
 @media(max-width:768px){
     .landing .texts{
