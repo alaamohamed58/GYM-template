@@ -87,5 +87,20 @@ setInterval(function(){
     }
 },3000)
 
-
-
+//duration
+var duration = document.querySelector('#duration .one');
+var durationTwo = document.querySelector('#duration .two');
+var offers = document.querySelectorAll('#classes .img-content');
+console.log(classes)
+window.onscroll = function(){
+    if(this.scrollY >= 230){
+        duration.classList.add('display');
+        durationTwo.classList.add('display');
+    };
+    if(this.scrollY >= 1300){
+        offers.forEach((img) =>{
+            img.classList.add('animat')
+        })
+    };
+   
+}

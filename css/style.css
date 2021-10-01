@@ -284,6 +284,9 @@ transition: all 0.3s linear;
     .landing .texts{
         width: 80%;
     }
+    .landing i.right,
+.landing i.left{
+    display: none;}
 }
 /*start duration*/
 .duration{
@@ -300,12 +303,45 @@ transition: all 0.3s linear;
 }
 .duration .container .box .one{
  width: 33.333%;
+ display: none;
+ animation: left 1s linear;
+ transform-origin:LEFT top ;
+
+}
+.duration .container .box .one.display{
+    display: block;
+}
+
+@keyframes left{
+    from{
+        transform: scaleX(0);
+    }
+    to{
+        transform: scaleX(1);
+
+    }
+}
+@keyframes right{
+    from{
+        transform: scaleX(0);
+    }
+    to{
+        transform: scaleX(1);
+
+    }
 }
 .duration .container .box .two{
     width: 40.444%;
     padding-left:3.5rem;
     border-left: 2px solid #212529;
+    display: none;
+    animation: right 1s linear;
+    transform-origin:right top ;
+
    }
+   .duration .container .box .two.display{
+    display: block;
+}
    .duration .container .box h2{
     font-size: 35px;
    }
@@ -421,6 +457,22 @@ transition: all 0.3s linear;
     position: relative;
     margin-right: 15px;
     margin-left: 15px;
+}
+.classes .container .box .img-content:nth-child(1).animat{
+animation: scalepop 1s linear;
+}
+.classes .container .box .img-content:nth-child(2).animat{
+    animation: scalepop 1s 1s linear;
+    }
+    .classes .container .box .img-content:nth-child(3).animat{
+        animation: scalepop 1s 2s linear;
+        }
+@keyframes scalepop{
+    50%{
+        transform: scale(1.1);
+    }100%{
+        transform: scale(1);
+    }
 }
 .classes .container .box .img-content img{
     width: 100%;
