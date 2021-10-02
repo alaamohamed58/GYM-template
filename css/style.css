@@ -102,6 +102,7 @@ div.toggle-btn{
     align-items: center;
     justify-content: center;
     position: relative;
+    z-index : 1111111
 }
 .bar{
     width: 30px;
