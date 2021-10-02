@@ -94,34 +94,51 @@ header .container nav{
     align-items: center;
     flex: 1;
 }
-header .container nav span.toggle{
+div.toggle-btn{
+    width: 40px;
+    height: 40px;
+    padding: 5px;
     display: none;
-    flex-wrap: wrap;
-    width: 25px;
-    height: 25px;
-    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.bar{
+    width: 30px;
+    height: 4px;
+    background: #fff;
+    transition: all 0.5s ease-in-out;
+}
+.toggle-btn.active .bar{
+    transform: translateX(-30px);
+    background: transparent;
+}
+.toggle-btn.active .bar::after{
+    transform: rotate(45deg) translate(21px, -21px);
+    background: var(--main-color);
+}
+.toggle-btn.active .bar::before{
+    transform: rotate(-45deg) translate(21px, 21px);
+    background: var(--main-color);
+
+}
+.bar::after,
+.bar::before{
+    content: '';
+    width: 30px;
+    height: 4px;
+    position: absolute;
+    background: #fff;
+    transition: all 0.5s ease-in-out;
+
+}
+.bar::after{
+    transform: translateY(-10px);
+}
+.bar::before{
+    transform: translateY(10px);
 }
 
-header .container nav span.toggle span{
-    background-color: #fff;
-    height: 1px;
-    transition: all 0.3s linear;
-}
-header .container nav span.toggle.active span{
-    background-color: var(--main-color);
-}
-header .container nav span.toggle span:nth-of-type(1),
-header .container nav span.toggle span:nth-of-type(3){
-    width: 100%;
-}
-header .container nav span.toggle span:nth-of-type(2){
-    width: 50%;
-    transition: all 0.3s linear;
-}
-
-header .container nav span.toggle.active span:nth-of-type(2){
-    width: 100%;
-}
 header .container nav .mobile{
     display: flex;
 }
@@ -177,7 +194,7 @@ header .container nav .icons i:hover{
     header .container nav .mobile .icons{
         margin-top:15px ;
     }
-    header .container nav span.toggle{
+    div.toggle-btn{
         display: flex;
     }
 }

@@ -1,5 +1,6 @@
 //toggleMenu
-document.querySelector('header .container nav span.toggle').onclick = function(){
+
+document.querySelector('.toggle-btn').onclick = function(){
 if(document.querySelector('header .container nav .mobile').style.transform === "translateY(-200%)"){
 document.querySelector('header .container nav .mobile').style.transform = "translateY(-9%)";
 this.classList.add('active');
@@ -9,6 +10,7 @@ this.classList.add('active');
 
     }
 };
+
 //slider
 var sliderImage = Array.from(document.querySelectorAll('.landing img')),
 sliderLength = sliderImage.length,
@@ -91,13 +93,14 @@ setInterval(function(){
 var duration = document.querySelector('#duration .one');
 var durationTwo = document.querySelector('#duration .two');
 var offers = document.querySelectorAll('#classes .img-content');
+var offersH = document.querySelector('#classes').getBoundingClientRect().top + 200;
 console.log(classes)
 window.onscroll = function(){
     if(this.scrollY >= 230){
         duration.classList.add('display');
         durationTwo.classList.add('display');
     };
-    if(this.scrollY >= 1300){
+    if(this.scrollY >= offersH){
         offers.forEach((img) =>{
             img.classList.add('animat')
         })
